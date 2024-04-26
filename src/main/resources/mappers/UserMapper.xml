@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.ilikemovie.UserMapper"><!--매퍼가 위치한 폴더이름과 동일, 매퍼의 패키지-->
+
+    <insert id="postUser">
+        INSERT INTO member
+        (unm, age, uid, upw, nickname)
+        VALUES
+        (#{unm}, #{age}, #{uid}, #{upw}, #{nickname})
+    </insert>
+
+
+</mapper>
