@@ -11,5 +11,15 @@
         (#{unm}, #{age}, #{uid}, #{upw}, #{nickname})
     </insert>
 
+    <select id="idCheck">
+        SELECT user_idx AS userIdx, unm, age, uid, upw, nickname
+        FROM member
+        WHERE uid=#{uid}
+    </select>
 
+    <update id="changePw">
+        UPDATE member
+        SET upw=#{newpw}
+        WHERE uid=#{uid}
+    </update>
 </mapper>

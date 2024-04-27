@@ -1,4 +1,4 @@
-package com.green.ilikemovie.user;
+package com.green.ilikemovie.usermem;
 
 import lombok.Getter;
 import lombok.Setter;
