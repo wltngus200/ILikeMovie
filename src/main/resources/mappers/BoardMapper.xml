@@ -3,6 +3,38 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.ilikemovie.board.BoardMapper">
+    <insert id="newPost">
+        INSERT INTO board
+        (user_idx, title, contents)
+        VALUES
+        (#{userIdx}, #{title}, #{contents})
+    </insert>
 
+    <select id="allPost">
+        SELECT A.board_num AS boardNum, B.uid, A.title, A.contents, A.cnt_click, A.post_date AS postDate
+        FROM board A
+        INNER JOIN member B
+        ON A.user_idx=B.user_idx
+        ORDER BY board_num DESC
+        LIMIT #{startIdx}, #{length}
+    </select>
+
+    <!--uid가 나오지 않아-->
+
+    <select id="onePost">
+        SELECT A.board_num AS boardNum, B.uid, A.title, A.contents, A.cnt_click AS cntClick, A.post_date AS postDate
+        FROM board A
+        INNER JOIN member B
+        ON A.user_idx=B.user_idx
+        WHERE A.board_num=#{boardNum}
+    </select>
+    <!--값의 조회-->
+
+    <update id="hitsUp">
+        UPDATE board
+        SET cnt_click=cnt_click+1
+        WHERE board_num=#{boardNum}
+    </update>
+    <!--값의 변경-->
 
 </mapper>

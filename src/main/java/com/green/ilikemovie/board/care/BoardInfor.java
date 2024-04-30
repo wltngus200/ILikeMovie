@@ -1,13 +1,15 @@
 package com.green.ilikemovie.board.care;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class PostBoard {
+public class BoardInfor {
+    private long boardNum;
     private long userIdx;
     private String title;
     private String contents;
+    private int cntClick;
+    private String postDate;
 }
